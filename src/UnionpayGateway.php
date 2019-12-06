@@ -18,4 +18,8 @@ class UnionpayGateway extends AbstractGateway
 
         return $request;
     }
+
+    public function completePurchase(array $options = array())
+    {
+    }
 }

@@ -8,4 +8,12 @@ class CashOnDeliveryGateway extends AbstractGateway
     {
         return 'ESafe Cash On Delivery';
     }
+
+    public function completePurchase(array $options = array())
+    {
+    }
+
+    public function acceptNotification(array $options = array())
+    {
+    }
 }

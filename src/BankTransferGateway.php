@@ -8,4 +8,12 @@ class BankTransferGateway extends AbstractGateway
     {
         return 'ESafe Bank Transfer';
     }
+
+    public function completePurchase(array $options = array())
+    {
+    }
+
+    public function acceptNotification(array $options = array())
+    {
+    }
 }

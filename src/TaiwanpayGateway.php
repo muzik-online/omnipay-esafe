@@ -8,4 +8,8 @@ class TaiwanpayGateway extends AbstractGateway
     {
         return 'ESafe Taiwanpay';
     }
+
+    public function completePurchase(array $options = array())
+    {
+    }
 }
