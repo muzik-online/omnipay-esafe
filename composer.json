@@ -1,0 +1,18 @@
+{
+    "name": "muzik/omnipay-esafe",
+    "description": "Esafe gateway for Omnipay payment processing library",
+    "type": "library",
+    "require": {
+        "omnipay/common": "^3"
+    },
+    "require-dev": {
+        "omnipay/tests": "^3"
+    },
+    "authors": [
+        {
+            "name": "Vincent Chi",
+            "email": "song374561@chivincent.net"
+        }
+    ],
+    "minimum-stability": "stable"
+}
