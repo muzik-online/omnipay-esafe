@@ -14,5 +14,15 @@
             "email": "song374561@chivincent.net"
         }
     ],
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "Muzik\\OmnipayEsafe\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\": "tests"
+        }
+    }
 }
