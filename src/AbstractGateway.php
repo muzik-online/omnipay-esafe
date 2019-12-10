@@ -2,11 +2,14 @@
 
 namespace Muzik\OmnipayEsafe;
 
+use Muzik\OmnipayEsafe\Traits\SupportsChecker;
 use Omnipay\Common\GatewayInterface;
 use Omnipay\Common\Helper;
 
 abstract class AbstractGateway implements GatewayInterface
 {
+    use SupportsChecker;
+
     /**
      * Get the short name of the Gateway
      *
