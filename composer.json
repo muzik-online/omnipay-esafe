@@ -3,7 +3,8 @@
     "description": "Esafe gateway for Omnipay payment processing library",
     "type": "library",
     "require": {
-        "omnipay/common": "^3"
+        "omnipay/common": "^3",
+        "muzik/esafe-php-sdk": "@dev"
     },
     "require-dev": {
         "omnipay/tests": "^3"
@@ -24,5 +25,11 @@
         "psr-4": {
             "Test\\": "tests"
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../esafe-php-sdk"
+        }
+    ]
 }
