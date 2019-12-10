@@ -7,33 +7,39 @@ use Omnipay\Common\Message\ResponseInterface;
 
 class RefundRequest implements RequestInterface
 {
+    protected ?RefundResponse $response = null;
+
+    protected array $parameters;
+
     public function getData()
     {
-        // TODO: Implement getData() method.
+        return $this;
     }
 
     public function initialize(array $parameters = array())
     {
-        // TODO: Implement initialize() method.
+        $this->parameters = $parameters;
     }
 
     public function getParameters()
     {
-        // TODO: Implement getParameters() method.
+        return $this->parameters;
     }
 
     public function getResponse()
     {
-        // TODO: Implement getResponse() method.
+        return $this->response ?: $this->send();
     }
 
     public function send()
     {
-        // TODO: Implement send() method.
+        return $this->sendData($this->getParameters());
     }
 
     public function sendData($data)
     {
         // TODO: Implement sendData() method.
+        $this->response = new RefundResponse();
+        return $this->response;
     }
 }
