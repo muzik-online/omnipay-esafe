@@ -30,4 +30,18 @@ class PaycodeGatewayTest extends TestCase
         $this->assertFalse($this->gateway->supportsDeleteCard());
         $this->assertFalse($this->gateway->supportsUpdateCard());
     }
+
+    public function test_set_api_key()
+    {
+        $this->gateway->setApiKey('abcd5888');
+
+        $this->assertSame('abcd5888', $this->gateway->getApiKey());
+    }
+
+    public function test_set_api_key_when_initialize()
+    {
+        $this->gateway->initialize(['api_key' => 'abcd5888']);
+
+        $this->assertSame('abcd5888', $this->gateway->getApiKey());
+    }
 }
