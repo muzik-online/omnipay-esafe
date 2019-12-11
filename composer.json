@@ -4,7 +4,7 @@
     "type": "library",
     "require": {
         "omnipay/common": "^3",
-        "muzik/esafe-php-sdk": "@dev"
+        "muzik/esafe-php-sdk": "^0.1"
     },
     "require-dev": {
         "omnipay/tests": "^3"
@@ -25,11 +25,5 @@
         "psr-4": {
             "Test\\": "tests"
         }
-    },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "../esafe-php-sdk"
-        }
-    ]
+    }
 }
