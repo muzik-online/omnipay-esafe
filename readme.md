@@ -21,52 +21,91 @@ For general usage instructions, please see the main [Omnipay](https://github.com
 
 ## Usage
 
-### CreditCard
+### Credit Card
 
-This is an example for synchronize payment gateway.
+#### Payment
+
+WIP
+
+#### Refund
 
 ```php
 <?php
-
 use Omnipay\Omnipay;
 
-$gateway = Omnipay::create('ESafe CreditCard');
-$gateway->setApiKey('abcd5888'); // ApiKey is transaction password from esafe.com.tw
+$gateway = Omnipay::create('ESafe Credit Card');
+$gateway->setApiKey('abcd5888');
+// The following two methods also can setting transaction password（API KEY） 
+// $gateway->initialize(['api_key' => 'abcd5888']);
+// $gateway->initialize(['transaction_password' => 'abcd5888']);
 
-$request = \GuzzleHttp\Psr7\ServerRequest::fromGlobals(); // Handle requests from esafe.com.tw webhook.
-
-$response = $gateway->completePurchase((array) $request->getParsedBody())->send(); // Remember `send()` after `completePurchase()`.
-
-echo "{$response->getCode()}: {$response->getMessage()}";
+$response = $gateway->refund([
+    // 商家代號
+    'web' => 'S1103020010',
+    // 交易金額
+    'MN' => '1688',
+    // 紅陽交易編號
+    'buysafeno' => '2400009912300000019',
+    // 商家訂單編號
+    'Td' => 'AC9087201',
+    // 退貨原因
+    'RefundMemo' => 'Foo Bar', 
+])->send();
 
 if ($response->isSuccessful()) {
-    // Handle successful.
+    // 退款成功
 } else {
-    // Handle failed.
+    // 退款失敗
+    var_dump($response->getData());
 }
 ```
 
-### Barcode
+- 注意事項
+    - `web`, `MN`, `buysafeno`, `Td` 與 `RefundMemo` 都是必填，且**不可**使用空字串
+    - 底層 SDK 會根據 API KEY 及相關資訊自動生成 `ChkValue`
 
-This is an example for asynchronize payment gateway.
+### Unionpay Card
+
+#### Payment
+
+#### Refund
+
 
 ```php
 <?php
-
 use Omnipay\Omnipay;
 
-$gateway = Omnipay::create('ESafe Barcode');
-$gateway->setApiKey('abcd5888'); // ApiKey is transaction password from esafe.com.tw
+$gateway = Omnipay::create('ESafe Unionpay');
+$gateway->setApiKey('abcd5888');
+// The following two methods also can setting transaction password（API KEY） 
+// $gateway->initialize(['api_key' => 'abcd5888']);
+// $gateway->initialize(['transaction_password' => 'abcd5888']);
 
-$request = \GuzzleHttp\Psr7\ServerRequest::fromGlobals(); // Handle requests from esafe.com.tw webhook.
-
-$response = $gateway->acceptNotification((array) $request->getParsedBody())->send(); // Remember `send()` after `acceptNotification()`
+$response = $gateway->refund([
+    // 商家代號
+    'web' => 'S1103020010',
+    // 交易金額
+    'MN' => '1688',
+    // 紅陽交易編號
+    'buysafeno' => '2400009912300000019',
+    // 商家訂單編號
+    'Td' => 'AC9087201',
+    // 退貨原因
+    'RefundMemo' => 'Foo Bar', 
+])->send();
 
 if ($response->isSuccessful()) {
-    // print barcode to customer.
-    var_dump($response);
+    // 退款成功
+} else {
+    // 退款失敗
+    var_dump($response->getData());
 }
 ```
+
+- 注意事項
+    - `web`, `MN`, `buysafeno`, `Td` 與 `RefundMemo` 都是必填，且**不可**使用空字串
+    - 底層 SDK 會根據 API KEY 及相關資訊自動生成 `ChkValue`
+
 
 ## Support APIs
 
