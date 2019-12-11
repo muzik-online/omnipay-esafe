@@ -10,6 +10,8 @@ abstract class AbstractGateway implements GatewayInterface
 {
     use SupportsChecker;
 
+    protected string $apiKey = '';
+
     /**
      * Get the short name of the Gateway
      *
@@ -30,11 +32,23 @@ abstract class AbstractGateway implements GatewayInterface
 
     public function initialize(array $parameters = array())
     {
+        $this->apiKey = $parameters['api_key'] ?? '';
+
         return $this;
     }
 
     public function getParameters()
     {
         return [];
+    }
+
+    public function setApiKey(string $apiKey)
+    {
+        $this->apiKey = $apiKey;
+    }
+
+    public function getApiKey(): string
+    {
+        return $this->apiKey;
     }
 }
