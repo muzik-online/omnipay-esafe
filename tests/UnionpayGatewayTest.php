@@ -2,6 +2,7 @@
 
 namespace Test;
 
+use Muzik\OmnipayEsafe\Message\RefundRequest;
 use Muzik\OmnipayEsafe\UnionpayGateway;
 use PHPUnit\Framework\TestCase;
 
@@ -43,5 +44,20 @@ class UnionpayGatewayTest extends TestCase
         $this->gateway->initialize(['api_key' => 'abcd5888']);
 
         $this->assertSame('abcd5888', $this->gateway->getApiKey());
+    }
+
+    public function test_refund()
+    {
+        $this->gateway->initialize(['api_key' => 'abcd5888']);
+        $request = $this->gateway->refund([
+            'web' => 'S1103020010',
+            'MN' => '1688',
+            'buysafeno' => '2400009912300000019',
+            'Td' => 'AC9087201',
+            'RefundMemo' => 'Foo Bar',
+            'ChkValue' => 'ca817f0333f4da7f4ec836b2ac08015a1b76816bc711e3fb42c1708abbb5d081',
+        ]);
+
+        $this->assertInstanceOf(RefundRequest::class, $request);
     }
 }
