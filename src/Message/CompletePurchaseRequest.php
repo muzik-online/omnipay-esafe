@@ -52,11 +52,13 @@ class CompletePurchaseRequest implements RequestInterface
     public function sendData($data)
     {
         try {
-            $this->sdk->handle($this->handler, $this->getParameters());
+            $handler = $this->sdk->handle($this->handler, $this->getParameters());
+
+            $response = new CompletePurchaseResponse($this, $handler);
         } catch (HandlerException $exception) {
-
+            $response = new CompletePurchaseResponse($this, null, $exception);
         } finally {
-
+            return $response;
         }
     }
 }
