@@ -9,7 +9,7 @@ class WebAtmGateway extends AbstractGateway
         return 'ESafe Web ATM';
     }
 
-    public function completePurchase(array $options = array())
+    public function completePurchase(array $options = [])
     {
     }
 }

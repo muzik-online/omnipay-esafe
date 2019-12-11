@@ -2,8 +2,8 @@
 
 namespace Test;
 
-use Muzik\OmnipayEsafe\PaycodeGateway;
 use PHPUnit\Framework\TestCase;
+use Muzik\OmnipayEsafe\PaycodeGateway;
 
 class PaycodeGatewayTest extends TestCase
 {

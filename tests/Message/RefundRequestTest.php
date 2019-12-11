@@ -4,11 +4,11 @@ namespace Test\Message;
 
 use Mockery;
 use Muzik\EsafeSdk\Esafe;
-use Muzik\EsafeSdk\Exceptions\RefundException;
+use PHPUnit\Framework\TestCase;
 use Muzik\EsafeSdk\Services\RefundService;
 use Muzik\OmnipayEsafe\Message\RefundRequest;
+use Muzik\EsafeSdk\Exceptions\RefundException;
 use Muzik\OmnipayEsafe\Message\RefundResponse;
-use PHPUnit\Framework\TestCase;
 
 class RefundRequestTest extends TestCase
 {

@@ -2,8 +2,8 @@
 
 namespace Test;
 
-use Muzik\OmnipayEsafe\BankTransferGateway;
 use PHPUnit\Framework\TestCase;
+use Muzik\OmnipayEsafe\BankTransferGateway;
 
 class BankTransferGatewayTest extends TestCase
 {

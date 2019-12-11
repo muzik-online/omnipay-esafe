@@ -3,9 +3,8 @@
 namespace Muzik\OmnipayEsafe\Message;
 
 use Muzik\EsafeSdk\Esafe;
-use Muzik\EsafeSdk\Exceptions\RefundException;
 use Omnipay\Common\Message\RequestInterface;
-use Omnipay\Common\Message\ResponseInterface;
+use Muzik\EsafeSdk\Exceptions\RefundException;
 
 class RefundRequest implements RequestInterface
 {
@@ -25,7 +24,7 @@ class RefundRequest implements RequestInterface
         return $this;
     }
 
-    public function initialize(array $parameters = array())
+    public function initialize(array $parameters = [])
     {
         $this->parameters = $parameters;
     }

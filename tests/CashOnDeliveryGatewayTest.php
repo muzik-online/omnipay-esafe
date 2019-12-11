@@ -2,8 +2,8 @@
 
 namespace Test;
 
-use Muzik\OmnipayEsafe\CashOnDeliveryGateway;
 use PHPUnit\Framework\TestCase;
+use Muzik\OmnipayEsafe\CashOnDeliveryGateway;
 
 class CashOnDeliveryGatewayTest extends TestCase
 {
