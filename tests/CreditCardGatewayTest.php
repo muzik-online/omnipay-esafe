@@ -2,9 +2,9 @@
 
 namespace Test;
 
+use PHPUnit\Framework\TestCase;
 use Muzik\OmnipayEsafe\CreditCardGateway;
 use Muzik\OmnipayEsafe\Message\RefundRequest;
-use PHPUnit\Framework\TestCase;
 
 class CreditCardGatewayTest extends TestCase
 {

@@ -2,8 +2,8 @@
 
 namespace Test;
 
-use Muzik\OmnipayEsafe\WebAtmGateway;
 use PHPUnit\Framework\TestCase;
+use Muzik\OmnipayEsafe\WebAtmGateway;
 
 class WebAtmGatewayTest extends TestCase
 {

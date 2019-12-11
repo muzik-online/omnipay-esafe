@@ -7,7 +7,18 @@ use Omnipay\Common\Message\ResponseInterface;
 
 class RefundResponse implements ResponseInterface
 {
+    /**
+     * Original request which was sent.
+     *
+     * @var RefundRequest
+     */
     protected RefundRequest $request;
+
+    /**
+     * When exception has been thrown, refund failed.
+     *
+     * @var RuntimeException|null
+     */
     protected ?RuntimeException $exception = null;
 
     public function __construct(RefundRequest $request, RuntimeException $exception = null)
@@ -16,11 +27,21 @@ class RefundResponse implements ResponseInterface
         $this->exception = $exception;
     }
 
+    /**
+     * Get current request data, it can use as `var_dump($this->getData())`
+     *
+     * @return $this|mixed
+     */
     public function getData()
     {
-        return null;
+        return $this;
     }
 
+    /**
+     * Get original request.
+     *
+     * @return RefundRequest|\Omnipay\Common\Message\RequestInterface
+     */
     public function getRequest()
     {
         return $this->request;

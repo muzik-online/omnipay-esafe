@@ -9,11 +9,11 @@ class BarcodeGateway extends AbstractGateway
         return 'ESafe Barcode';
     }
 
-    public function completePurchase(array $options = array())
+    public function completePurchase(array $options = [])
     {
     }
 
-    public function acceptNotification(array $options = array())
+    public function acceptNotification(array $options = [])
     {
     }
 }

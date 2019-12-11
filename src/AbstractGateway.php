@@ -2,9 +2,9 @@
 
 namespace Muzik\OmnipayEsafe;
 
-use Muzik\OmnipayEsafe\Traits\SupportsChecker;
-use Omnipay\Common\GatewayInterface;
 use Omnipay\Common\Helper;
+use Omnipay\Common\GatewayInterface;
+use Muzik\OmnipayEsafe\Traits\SupportsChecker;
 
 abstract class AbstractGateway implements GatewayInterface
 {
@@ -30,7 +30,7 @@ abstract class AbstractGateway implements GatewayInterface
         return [];
     }
 
-    public function initialize(array $parameters = array())
+    public function initialize(array $parameters = [])
     {
         $this->apiKey = $parameters['api_key'] ?? $parameters['transaction_password'] ?? '';
 

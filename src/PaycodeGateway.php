@@ -9,11 +9,11 @@ class PaycodeGateway extends AbstractGateway
         return 'ESafe Paycode';
     }
 
-    public function completePurchase(array $options = array())
+    public function completePurchase(array $options = [])
     {
     }
 
-    public function acceptNotification(array $options = array())
+    public function acceptNotification(array $options = [])
     {
     }
 }

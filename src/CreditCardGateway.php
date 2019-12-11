@@ -12,7 +12,7 @@ class CreditCardGateway extends AbstractGateway
         return 'ESafe Credit Card';
     }
 
-    public function refund(array $options = array())
+    public function refund(array $options = [])
     {
         $request = new RefundRequest(new Esafe(['transaction_password' => $this->getApiKey()]));
         $request->initialize($options);
@@ -20,7 +20,7 @@ class CreditCardGateway extends AbstractGateway
         return $request;
     }
 
-    public function completePurchase(array $options = array())
+    public function completePurchase(array $options = [])
     {
     }
 }

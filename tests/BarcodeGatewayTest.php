@@ -2,8 +2,8 @@
 
 namespace Test;
 
-use Muzik\OmnipayEsafe\BarcodeGateway;
 use PHPUnit\Framework\TestCase;
+use Muzik\OmnipayEsafe\BarcodeGateway;
 
 class BarcodeGatewayTest extends TestCase
 {

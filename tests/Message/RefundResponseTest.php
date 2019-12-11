@@ -3,11 +3,10 @@
 namespace Test\Message;
 
 use Mockery;
-use Muzik\EsafeSdk\Exceptions\RefundException;
-use Muzik\OmnipayEsafe\Message\RefundRequest;
-use Muzik\OmnipayEsafe\Message\RefundResponse;
-use Omnipay\Common\Message\RequestInterface;
 use PHPUnit\Framework\TestCase;
+use Muzik\OmnipayEsafe\Message\RefundRequest;
+use Muzik\EsafeSdk\Exceptions\RefundException;
+use Muzik\OmnipayEsafe\Message\RefundResponse;
 
 class RefundResponseTest extends TestCase
 {
