@@ -44,6 +44,11 @@ class CompletePurchaseRequest implements RequestInterface
         return $this->response ?: $this->send();
     }
 
+    public function isTesting(): bool
+    {
+        return $this->parameters['testing'] ?? false;
+    }
+
     public function send()
     {
         return $this->sendData($this->getParameters());

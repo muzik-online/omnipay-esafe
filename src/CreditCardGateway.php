@@ -26,7 +26,7 @@ class CreditCardGateway extends AbstractGateway
     public function completePurchase(array $options = [])
     {
         $request = new CompletePurchaseRequest(new Esafe(['transaction_password' => $this->getApiKey()]));
-        $request->initialize(['driver' => Esafe::HANDLER_CREDIT_CARD] + (array) ServerRequest::fromGlobals()->getParsedBody());
+        $request->initialize(['handler' => Esafe::HANDLER_CREDIT_CARD] + (array) ServerRequest::fromGlobals()->getParsedBody());
 
         return $request;
     }
