@@ -130,7 +130,7 @@ if ($response->isSuccessful()) {
     - `acceptNotification(array $options = []): RequestInterface`
 - CreditCard
     - `completePurchase(array $options = []): RequestInterface`
-    - `refund(array $options = []): RequestInterface`
+    - `refund(array $options = []): RefundRequest`
 - Paycode
     - `completePurchase(array $options = []): RequestInterface`
     - `acceptNotification(array $options = []): RequestInterface`
@@ -138,6 +138,6 @@ if ($response->isSuccessful()) {
     - `completePurchase(array $options = []): RequestInterface`
 - Unionpay
     - `completePurchase(array $options = []): RequestInterface`
-    - `refund(array $options = []): RequestInterface`
+    - `refund(array $options = []): RefundRequest`
 - WebAtm
     - `completePurchase(array $options = []): RequestInterface`
