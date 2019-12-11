@@ -2,6 +2,7 @@
 
 namespace Muzik\OmnipayEsafe;
 
+use Muzik\EsafeSdk\Esafe;
 use Muzik\OmnipayEsafe\Message\RefundRequest;
 
 class CreditCardGateway extends AbstractGateway
@@ -13,7 +14,7 @@ class CreditCardGateway extends AbstractGateway
 
     public function refund(array $options = array())
     {
-        $request = new RefundRequest();
+        $request = new RefundRequest(new Esafe(['transaction_password' => $this->getApiKey()]));
         $request->initialize($options);
 
         return $request;
