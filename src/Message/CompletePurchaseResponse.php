@@ -52,12 +52,16 @@ class CompletePurchaseResponse implements ResponseInterface
 
     public function getMessage()
     {
-        return $this->exception->getMessage() ?? null;
+        return $this->exception
+            ? $this->exception->getMessage()
+            : null;
     }
 
     public function getCode()
     {
-        return $this->exception->getCode() ?? null;
+        return $this->exception
+            ? $this->exception->getCode()
+            : null;
     }
 
     public function getTransactionReference()
