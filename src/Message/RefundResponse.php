@@ -2,48 +2,61 @@
 
 namespace Muzik\OmnipayEsafe\Message;
 
-use Omnipay\Common\Message\RequestInterface;
+use RuntimeException;
 use Omnipay\Common\Message\ResponseInterface;
 
 class RefundResponse implements ResponseInterface
 {
+    protected RefundRequest $request;
+    protected ?RuntimeException $exception = null;
+
+    public function __construct(RefundRequest $request, RuntimeException $exception = null)
+    {
+        $this->request = $request;
+        $this->exception = $exception;
+    }
+
     public function getData()
     {
-        // TODO: Implement getData() method.
+        return null;
     }
 
     public function getRequest()
     {
-        // TODO: Implement getRequest() method.
+        return $this->request;
     }
 
     public function isSuccessful()
     {
-        // TODO: Implement isSuccessful() method.
+        return $this->exception === null;
     }
 
     public function isRedirect()
     {
-        // TODO: Implement isRedirect() method.
+        return false;
     }
 
     public function isCancelled()
     {
-        // TODO: Implement isCancelled() method.
+        return $this->exception !== null;
     }
 
     public function getMessage()
     {
-        // TODO: Implement getMessage() method.
+        return $this->exception
+            ? $this->exception->getMessage()
+            : 'E0';
     }
 
     public function getCode()
     {
-        // TODO: Implement getCode() method.
+        return $this->exception
+            ? $this->exception->getCode()
+            : 'E0';
     }
 
     public function getTransactionReference()
     {
-        // TODO: Implement getTransactionReference() method.
+        return null;
     }
 }
