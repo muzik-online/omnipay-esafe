@@ -2,10 +2,8 @@
 
 namespace Muzik\OmnipayEsafe\Message;
 
-use Muzik\EsafeSdk\Contracts\Handler;
-use Muzik\EsafeSdk\Exceptions\HandlerException;
 use RuntimeException;
-use Omnipay\Common\Message\RequestInterface;
+use Muzik\EsafeSdk\Contracts\Handler;
 use Omnipay\Common\Message\ResponseInterface;
 
 class CompletePurchaseResponse implements ResponseInterface
@@ -68,5 +66,4 @@ class CompletePurchaseResponse implements ResponseInterface
     {
         return $this->handler->buysafeno;
     }
-
 }

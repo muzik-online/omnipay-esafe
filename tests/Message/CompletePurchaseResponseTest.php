@@ -3,11 +3,11 @@
 namespace Test\Message;
 
 use Mockery;
+use PHPUnit\Framework\TestCase;
 use Muzik\EsafeSdk\Contracts\Handler;
 use Muzik\EsafeSdk\Exceptions\HandlerException;
 use Muzik\OmnipayEsafe\Message\CompletePurchaseRequest;
 use Muzik\OmnipayEsafe\Message\CompletePurchaseResponse;
-use PHPUnit\Framework\TestCase;
 
 class CompletePurchaseResponseTest extends TestCase
 {

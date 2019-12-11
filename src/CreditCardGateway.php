@@ -2,11 +2,10 @@
 
 namespace Muzik\OmnipayEsafe;
 
-use GuzzleHttp\Psr7\ServerRequest;
-use Muzik\EsafeSdk\Contracts\Handler;
 use Muzik\EsafeSdk\Esafe;
-use Muzik\OmnipayEsafe\Message\CompletePurchaseRequest;
+use GuzzleHttp\Psr7\ServerRequest;
 use Muzik\OmnipayEsafe\Message\RefundRequest;
+use Muzik\OmnipayEsafe\Message\CompletePurchaseRequest;
 
 class CreditCardGateway extends AbstractGateway
 {
