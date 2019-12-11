@@ -32,7 +32,7 @@ abstract class AbstractGateway implements GatewayInterface
 
     public function initialize(array $parameters = array())
     {
-        $this->apiKey = $parameters['api_key'] ?? '';
+        $this->apiKey = $parameters['api_key'] ?? $parameters['transaction_password'] ?? '';
 
         return $this;
     }
