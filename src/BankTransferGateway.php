@@ -3,6 +3,7 @@
 namespace Muzik\OmnipayEsafe;
 
 use Muzik\EsafeSdk\Esafe;
+use Muzik\OmnipayEsafe\Message\AcceptNotificationRequest;
 use Muzik\OmnipayEsafe\Message\CompletePurchaseRequest;
 
 class BankTransferGateway extends AbstractGateway
@@ -22,5 +23,9 @@ class BankTransferGateway extends AbstractGateway
 
     public function acceptNotification(array $options = [])
     {
+        $request = new AcceptNotificationRequest(new Esafe(['transaction_password' => $this->getApiKey()]));
+        $request->initialize(['handler' => Esafe::HANDLER_BANK_TRANSFER] + $options);
+
+        return $request;
     }
 }
