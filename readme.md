@@ -1,4 +1,5 @@
 # Omnipay: Esafe
+![](https://github.com/muzik-online/omnipay-esafe/workflows/Test/badge.svg)
 
 ESafe driver for the Omnipay PHP payment processing library.
 
