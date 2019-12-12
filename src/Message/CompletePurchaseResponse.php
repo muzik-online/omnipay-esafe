@@ -64,6 +64,6 @@ class CompletePurchaseResponse implements ResponseInterface
 
     public function getTransactionReference()
     {
-        return $this->handler->buysafeno;
+        return $this->handler->getTransactionReference();
     }
 }

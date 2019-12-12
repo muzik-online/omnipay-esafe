@@ -50,7 +50,8 @@ class CompletePurchaseResponseTest extends TestCase
     protected function createMockeryHandler()
     {
         $handler = Mockery::mock(Handler::class);
-        $handler->buysafeno = '2400009912300000019';
+        $handler->shouldReceive('getTransactionReference')->withNoArgs()->once()
+            ->andReturn('2400009912300000019');
         $handler->shouldReceive('getParameters')->withNoArgs()->once()
             ->andReturn(['foo' => 'bar']);
 
