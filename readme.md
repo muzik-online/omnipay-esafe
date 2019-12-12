@@ -27,8 +27,11 @@ First of all, should create gateway instance
 <?php
 
 use Omnipay\Omnipay;
+use Muzik\OmnipayEsafe\EsafeGatewayFactory;
+use Muzik\OmnipayEsafe\CreditCardGateway;
 
-$gateway = Omnipay::create('ESafe Credit Card');
+Omnipay::setFactory(new EsafeGatewayFactory());
+$gateway = Omnipay::create(CreditCardGateway::class);
 $gateway->setApiKey('abcd5888');
 // The following two methods also can setting transaction password（API KEY） 
 // $gateway->initialize(['api_key' => 'abcd5888']);
@@ -151,19 +154,19 @@ if ($response->isSuccessful()) {
 
 - BankTransfer
     - `completePurchase(array $options = []): CompletePurchaseRequest`
-    - `acceptNotification(array $options = []): RequestInterface`
+    - `acceptNotification(array $options = []): AcceptNotificationRequest`
 - Barcode
     - `completePurchase(array $options = []): CompletePurchaseRequest`
-    - `acceptNotification(array $options = []): RequestInterface`
+    - `acceptNotification(array $options = []): AcceptNotificationRequest`
 - CashOnDelivery
     - `completePurchase(array $options = []): CompletePurchaseRequest`
-    - `acceptNotification(array $options = []): RequestInterface`
+    - `acceptNotification(array $options = []): AcceptNotificationRequest`
 - CreditCard
     - `completePurchase(array $options = []): CompletePurchaseRequest`
     - `refund(array $options = []): RefundRequest`
 - Paycode
     - `completePurchase(array $options = []): CompletePurchaseRequest`
-    - `acceptNotification(array $options = []): RequestInterface`
+    - `acceptNotification(array $options = []): AcceptNotificationRequest`
 - Taiwanpay
     - `completePurchase(array $options = []): CompletePurchaseRequest`
 - Unionpay
