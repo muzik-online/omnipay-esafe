@@ -100,11 +100,9 @@ class RefundRequest implements RequestInterface
         try {
             $this->sdk->refund($this->getParameters(), $this->isTesting())->send();
 
-            $this->response = new RefundResponse($this);
+            return ($this->response = new RefundResponse($this));
         } catch (RefundException $exception) {
-            $this->response = new RefundResponse($this, $exception);
-        } finally {
-            return $this->response;
+            return ($this->response = new RefundResponse($this, $exception));
         }
     }
 }
