@@ -12,6 +12,8 @@ abstract class AbstractGateway implements GatewayInterface
 
     protected string $apiKey = '';
 
+    protected bool $testing = false;
+
     /**
      * Get the short name of the Gateway
      *
@@ -50,5 +52,15 @@ abstract class AbstractGateway implements GatewayInterface
     public function getApiKey(): string
     {
         return $this->apiKey;
+    }
+
+    public function setTestMode(bool $testing)
+    {
+        $this->testing = $testing;
+    }
+
+    public function getTestMode(): bool
+    {
+        return $this->testing;
     }
 }
