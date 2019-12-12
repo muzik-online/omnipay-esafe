@@ -3,11 +3,11 @@
 namespace Test\Message;
 
 use Mockery;
+use PHPUnit\Framework\TestCase;
 use Muzik\EsafeSdk\Contracts\Handler;
 use Muzik\EsafeSdk\Exceptions\HandlerException;
 use Muzik\OmnipayEsafe\Message\AcceptNotificationRequest;
 use Muzik\OmnipayEsafe\Message\AcceptNotificationResponse;
-use PHPUnit\Framework\TestCase;
 
 class AcceptNotificationResponseTest extends TestCase
 {
@@ -43,11 +43,6 @@ class AcceptNotificationResponseTest extends TestCase
         $this->assertSame('Custom Error', $response->getMessage());
     }
 
-    protected function createMockeryRequest()
-    {
-        return Mockery::mock(AcceptNotificationRequest::class);
-    }
-
     public function createMockeryHandler()
     {
         $handler = Mockery::mock(Handler::class);
@@ -55,5 +50,10 @@ class AcceptNotificationResponseTest extends TestCase
             ->andReturn('2400009912300000019');
 
         return $handler;
+    }
+
+    protected function createMockeryRequest()
+    {
+        return Mockery::mock(AcceptNotificationRequest::class);
     }
 }

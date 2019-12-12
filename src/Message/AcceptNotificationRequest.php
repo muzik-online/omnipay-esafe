@@ -3,9 +3,9 @@
 namespace Muzik\OmnipayEsafe\Message;
 
 use Muzik\EsafeSdk\Esafe;
-use Muzik\EsafeSdk\Exceptions\HandlerException;
 use Omnipay\Common\Message\RequestInterface;
 use Omnipay\Common\Message\ResponseInterface;
+use Muzik\EsafeSdk\Exceptions\HandlerException;
 
 class AcceptNotificationRequest implements RequestInterface
 {
@@ -24,7 +24,7 @@ class AcceptNotificationRequest implements RequestInterface
         return $this;
     }
 
-    public function initialize(array $parameters = array())
+    public function initialize(array $parameters = [])
     {
         $this->handler = $parameters['handler'];
         $this->parameters = $parameters;

@@ -2,7 +2,6 @@
 
 namespace Muzik\OmnipayEsafe\Message;
 
-use Omnipay\Common\Message\RequestInterface;
 use RuntimeException;
 use Muzik\EsafeSdk\Contracts\Handler;
 use Omnipay\Common\Message\ResponseInterface;

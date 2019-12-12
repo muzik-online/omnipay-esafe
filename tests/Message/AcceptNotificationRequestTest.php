@@ -4,10 +4,10 @@ namespace Test\Message;
 
 use Mockery;
 use Muzik\EsafeSdk\Esafe;
-use Muzik\EsafeSdk\Exceptions\HandlerException;
-use Muzik\EsafeSdk\Handlers\CreditCard;
-use Muzik\OmnipayEsafe\Message\AcceptNotificationRequest;
 use PHPUnit\Framework\TestCase;
+use Muzik\EsafeSdk\Handlers\CreditCard;
+use Muzik\EsafeSdk\Exceptions\HandlerException;
+use Muzik\OmnipayEsafe\Message\AcceptNotificationRequest;
 
 class AcceptNotificationRequestTest extends TestCase
 {
