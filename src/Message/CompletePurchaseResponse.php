@@ -35,7 +35,15 @@ class CompletePurchaseResponse implements ResponseInterface
 
     public function isSuccessful()
     {
-        return $this->exception === null;
+        if ($this->exception) {
+            return false;
+        }
+
+        if ($this->handler && $this->handler->getParameters()['errcode'] === '00') {
+            return true;
+        }
+
+        return false;
     }
 
     public function isRedirect()
@@ -45,21 +53,33 @@ class CompletePurchaseResponse implements ResponseInterface
 
     public function isCancelled()
     {
-        return $this->exception !== null;
+        return !$this->isSuccessful();
     }
 
     public function getMessage()
     {
-        return $this->exception
-            ? $this->exception->getMessage()
-            : null;
+        if ($this->exception) {
+            return $this->exception->getMessage();
+        }
+
+        if ($this->handler) {
+            return $this->handler->getParameters()['errmsg'] ?? null;
+        }
+
+        return null;
     }
 
     public function getCode()
     {
-        return $this->exception
-            ? $this->exception->getCode()
-            : null;
+        if ($this->exception) {
+            return $this->exception->getCode();
+        }
+
+        if ($this->handler) {
+            return $this->handler->getParameters()['errcode'] ?? null;
+        }
+
+        return null;
     }
 
     public function getTransactionReference()

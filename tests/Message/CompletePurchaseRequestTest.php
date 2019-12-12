@@ -49,6 +49,9 @@ class CompletePurchaseRequestTest extends TestCase
     public function test_send_success()
     {
         $handler = Mockery::mock(CreditCard::class);
+        $handler->shouldReceive('getParameters')->withNoArgs()->andReturn([
+            'errcode' => '00',
+        ]);
         $sdk = Mockery::mock(Esafe::class);
         $sdk->shouldReceive('handle')
             ->with(Esafe::HANDLER_CREDIT_CARD, ['handler' => Esafe::HANDLER_CREDIT_CARD, 'foo' => 'bar'])->once()
@@ -61,7 +64,7 @@ class CompletePurchaseRequestTest extends TestCase
         $this->assertTrue($response->isSuccessful());
     }
 
-    public function test_send_failed()
+    public function test_send_failed_by_exception()
     {
         $sdk = Mockery::mock(Esafe::class);
         $sdk->shouldReceive('handle')
@@ -74,5 +77,24 @@ class CompletePurchaseRequestTest extends TestCase
 
         $this->assertFalse($response->isSuccessful());
         $this->assertSame('Custom Error', $response->getMessage());
+    }
+
+    public function test_send_failed_by_easfe()
+    {
+        $handler = Mockery::mock(CreditCard::class);
+        $handler->shouldReceive('getParameters')->withNoArgs()->andReturn([
+            'errcode' => '01' // Something wrong.
+        ]);
+        $sdk = Mockery::mock(Esafe::class);
+        $sdk->shouldReceive('handle')
+            ->with(Esafe::HANDLER_CREDIT_CARD, ['handler' => Esafe::HANDLER_CREDIT_CARD, 'foo' => 'bar'])->once()
+            ->andReturn($handler);
+
+        $request = new CompletePurchaseRequest($sdk);
+        $request->initialize(['handler' => Esafe::HANDLER_CREDIT_CARD, 'foo' => 'bar']);
+        $response = $request->send();
+
+        $this->assertFalse($response->isSuccessful());
+
     }
 }
