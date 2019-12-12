@@ -32,6 +32,9 @@ use Muzik\OmnipayEsafe\CreditCardGateway;
 
 Omnipay::setFactory(new EsafeGatewayFactory());
 $gateway = Omnipay::create(CreditCardGateway::class);
+// When using testing endpoint for refunding, please use `$gateway->setTestMode(true)`
+$gateway->setTestMode(true);
+
 $gateway->setApiKey('abcd5888');
 // The following two methods also can setting transaction password（API KEY） 
 // $gateway->initialize(['api_key' => 'abcd5888']);
