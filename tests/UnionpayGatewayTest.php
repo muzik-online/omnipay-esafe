@@ -5,6 +5,7 @@ namespace Test;
 use PHPUnit\Framework\TestCase;
 use Muzik\OmnipayEsafe\UnionpayGateway;
 use Muzik\OmnipayEsafe\Message\RefundRequest;
+use Muzik\OmnipayEsafe\Message\CompletePurchaseRequest;
 
 class UnionpayGatewayTest extends TestCase
 {
@@ -59,5 +60,43 @@ class UnionpayGatewayTest extends TestCase
         ]);
 
         $this->assertInstanceOf(RefundRequest::class, $request);
+    }
+
+    public function test_complete_request()
+    {
+        $this->gateway->setApiKey('abcd5888');
+        $request = $this->gateway->completePurchase([
+            'buysafeno' => '2400009912300000019',
+            'web' => 'S1103020010',
+            'MN' => '1000',
+            'Td' => '',
+            'webname' => '英屬維京群島商希幔數位有限公司台灣分公司',
+            'Name' => 'V****** **i',
+            'note1' => '',
+            'note2' => '',
+            'ApproveCode' => '',
+            'Card_NO' => '',
+            'Card_Type' => '1',
+            'UserNo' => '',
+            'PayDate' => '',
+            'PayTime' => '',
+            'SendType' => '1',
+            'errcode' => '00',
+            'errmsg' => '',
+            'PayType' => '',
+            'PayAgency' => '',
+            'PayAgencyMemo' => '',
+            'PayAgencyName' => '',
+            'PayAgencyTel' => '',
+            'PayAgencyAddress' => '',
+            'CargoNo' => '',
+            'StoreName' => '',
+            'StoreID' => '',
+            'InvoiceNo' => '',
+            'tokenData' => '',
+            'ChkValue' => '6E0ED343525CDCBE678BB1103054CBA25E634282',
+        ]);
+
+        $this->assertInstanceOf(CompletePurchaseRequest::class, $request);
     }
 }

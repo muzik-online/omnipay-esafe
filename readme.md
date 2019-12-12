@@ -21,16 +21,11 @@ For general usage instructions, please see the main [Omnipay](https://github.com
 
 ## Usage
 
-### Credit Card
-
-#### Payment
-
-WIP
-
-#### Refund
+First of all, should create gateway instance
 
 ```php
 <?php
+
 use Omnipay\Omnipay;
 
 $gateway = Omnipay::create('ESafe Credit Card');
@@ -38,6 +33,32 @@ $gateway->setApiKey('abcd5888');
 // The following two methods also can setting transaction password（API KEY） 
 // $gateway->initialize(['api_key' => 'abcd5888']);
 // $gateway->initialize(['transaction_password' => 'abcd5888']);
+```
+
+### Credit Card
+
+#### Payment
+
+```php
+<?php
+
+$response = $gateway->completePurchase([
+    // POST from esafe.com.tw webhook
+])->send();
+
+if ($response->isSuccessful()) {
+    // 付款成功
+    vardump($response->getData()); // 取得紅陽的回傳資料
+} else {
+    // 付款失敗
+    var_dump($response);
+}
+```
+
+#### Refund
+
+```php
+<?php
 
 $response = $gateway->refund([
     // 商家代號
@@ -68,18 +89,27 @@ if ($response->isSuccessful()) {
 
 #### Payment
 
+```php
+<?php
+
+$response = $gateway->completePurchase([
+    // POST from esafe.com.tw webhook
+])->send();
+
+if ($response->isSuccessful()) {
+    // 付款成功
+    vardump($response->getData()); // 取得紅陽的回傳資料
+} else {
+    // 付款失敗
+    var_dump($response);
+}
+```
+
 #### Refund
 
 
 ```php
 <?php
-use Omnipay\Omnipay;
-
-$gateway = Omnipay::create('ESafe Unionpay');
-$gateway->setApiKey('abcd5888');
-// The following two methods also can setting transaction password（API KEY） 
-// $gateway->initialize(['api_key' => 'abcd5888']);
-// $gateway->initialize(['transaction_password' => 'abcd5888']);
 
 $response = $gateway->refund([
     // 商家代號
@@ -120,24 +150,24 @@ if ($response->isSuccessful()) {
 ### List
 
 - BankTransfer
-    - `completePurchase(array $options = []): RequestInterface`
+    - `completePurchase(array $options = []): CompletePurchaseRequest`
     - `acceptNotification(array $options = []): RequestInterface`
 - Barcode
-    - `completePurchase(array $options = []): RequestInterface`
+    - `completePurchase(array $options = []): CompletePurchaseRequest`
     - `acceptNotification(array $options = []): RequestInterface`
 - CashOnDelivery
-    - `completePurchase(array $options = []): RequestInterface`
+    - `completePurchase(array $options = []): CompletePurchaseRequest`
     - `acceptNotification(array $options = []): RequestInterface`
 - CreditCard
-    - `completePurchase(array $options = []): RequestInterface`
+    - `completePurchase(array $options = []): CompletePurchaseRequest`
     - `refund(array $options = []): RefundRequest`
 - Paycode
-    - `completePurchase(array $options = []): RequestInterface`
+    - `completePurchase(array $options = []): CompletePurchaseRequest`
     - `acceptNotification(array $options = []): RequestInterface`
 - Taiwanpay
-    - `completePurchase(array $options = []): RequestInterface`
+    - `completePurchase(array $options = []): CompletePurchaseRequest`
 - Unionpay
-    - `completePurchase(array $options = []): RequestInterface`
+    - `completePurchase(array $options = []): CompletePurchaseRequest`
     - `refund(array $options = []): RefundRequest`
 - WebAtm
-    - `completePurchase(array $options = []): RequestInterface`
+    - `completePurchase(array $options = []): CompletePurchaseRequest`
