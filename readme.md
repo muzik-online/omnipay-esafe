@@ -154,19 +154,19 @@ if ($response->isSuccessful()) {
 
 - BankTransfer
     - `completePurchase(array $options = []): CompletePurchaseRequest`
-    - `acceptNotification(array $options = []): RequestInterface`
+    - `acceptNotification(array $options = []): AcceptNotificationRequest`
 - Barcode
     - `completePurchase(array $options = []): CompletePurchaseRequest`
-    - `acceptNotification(array $options = []): RequestInterface`
+    - `acceptNotification(array $options = []): AcceptNotificationRequest`
 - CashOnDelivery
     - `completePurchase(array $options = []): CompletePurchaseRequest`
-    - `acceptNotification(array $options = []): RequestInterface`
+    - `acceptNotification(array $options = []): AcceptNotificationRequest`
 - CreditCard
     - `completePurchase(array $options = []): CompletePurchaseRequest`
     - `refund(array $options = []): RefundRequest`
 - Paycode
     - `completePurchase(array $options = []): CompletePurchaseRequest`
-    - `acceptNotification(array $options = []): RequestInterface`
+    - `acceptNotification(array $options = []): AcceptNotificationRequest`
 - Taiwanpay
     - `completePurchase(array $options = []): CompletePurchaseRequest`
 - Unionpay
