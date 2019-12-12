@@ -53,11 +53,11 @@ class AcceptNotificationRequest implements RequestInterface
     public function sendData($data)
     {
         try {
+            $handler = $this->sdk->handle($this->handler, $data);
 
+            return new AcceptNotificationResponse($this, $handler);
         } catch (HandlerException $exception) {
-
-        } finally {
-
+            return new AcceptNotificationResponse($this, null, $exception);
         }
     }
 }
