@@ -5,6 +5,7 @@ namespace Test;
 use PHPUnit\Framework\TestCase;
 use Muzik\OmnipayEsafe\PaycodeGateway;
 use Muzik\OmnipayEsafe\Message\CompletePurchaseRequest;
+use Muzik\OmnipayEsafe\Message\AcceptNotificationRequest;
 
 class PaycodeGatewayTest extends TestCase
 {
@@ -73,5 +74,53 @@ class PaycodeGatewayTest extends TestCase
         ]);
 
         $this->assertInstanceOf(CompletePurchaseRequest::class, $request);
+    }
+
+    public function test_accept_notification()
+    {
+        $this->gateway->setApiKey('abcd5888');
+        $request = $this->gateway->acceptNotification([
+            'buysafeno' =>	'2400009912300000019',
+            'web' =>	'S1103020010',
+            'MN' =>	'1000',
+            'Td' =>	'',
+            'webname' =>	'香港商帕格數碼媒體股份有限公司',
+            'Name' =>	'V****** **i',
+            'note1' =>	'',
+            'note2' =>	'',
+            'ApproveCode' =>	'',
+            'Card_NO' =>	'',
+            'Card_Type' =>	'',
+            'UserNo' =>	'',
+            'PayDate' =>	'',
+            'PayTime' =>	'',
+            'SendType' =>	'1',
+            'errcode' =>	'',
+            'errmsg' =>	'',
+            'paycode' =>	'LAC90824000098',
+            'PayType' =>	'4,5,6,7',
+            'PayAgency' =>	'',
+            'PayAgencyMemo' =>	'',
+            'PayAgencyName' =>	'',
+            'PayAgencyTel' =>	'',
+            'PayAgencyAddress' =>	'',
+            'BarcodeA' =>	'',
+            'BarcodeB' =>	'',
+            'BarcodeC' =>	'',
+            'PostBarcodeA' =>	'',
+            'PostBarcodeB' =>	'',
+            'PostBarcodeC' =>	'',
+            'EntityATM' =>	'',
+            'BankCode' =>	'',
+            'BankName' =>	'',
+            'CargoNo' =>	'',
+            'StoreName' =>	'',
+            'StoreID' =>	'',
+            'InvoiceNo' =>	'',
+            'tokenData' =>	'',
+            'ChkValue' =>	'9C53A993836A12DD477CF39FBB10E0C4E67323E0',
+        ]);
+
+        $this->assertInstanceOf(AcceptNotificationRequest::class, $request);
     }
 }
