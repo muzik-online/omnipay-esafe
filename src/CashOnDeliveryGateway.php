@@ -3,7 +3,6 @@
 namespace Muzik\OmnipayEsafe;
 
 use Muzik\EsafeSdk\Esafe;
-use Muzik\EsafeSdk\Handlers\CashOnDeliveryResult;
 use Muzik\OmnipayEsafe\Message\CompletePurchaseRequest;
 
 class CashOnDeliveryGateway extends AbstractGateway

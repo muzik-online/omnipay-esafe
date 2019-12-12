@@ -2,10 +2,10 @@
 
 namespace Test;
 
-use Muzik\OmnipayEsafe\Message\CompletePurchaseRequest;
 use PHPUnit\Framework\TestCase;
 use Muzik\OmnipayEsafe\UnionpayGateway;
 use Muzik\OmnipayEsafe\Message\RefundRequest;
+use Muzik\OmnipayEsafe\Message\CompletePurchaseRequest;
 
 class UnionpayGatewayTest extends TestCase
 {

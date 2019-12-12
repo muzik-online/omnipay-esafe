@@ -3,7 +3,6 @@
 namespace Muzik\OmnipayEsafe;
 
 use Muzik\EsafeSdk\Esafe;
-use Muzik\EsafeSdk\Handlers\BankTransferResult;
 use Muzik\OmnipayEsafe\Message\CompletePurchaseRequest;
 
 class BankTransferGateway extends AbstractGateway

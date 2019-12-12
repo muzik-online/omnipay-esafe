@@ -3,7 +3,6 @@
 namespace Muzik\OmnipayEsafe;
 
 use Muzik\EsafeSdk\Esafe;
-use GuzzleHttp\Psr7\ServerRequest;
 use Muzik\OmnipayEsafe\Message\RefundRequest;
 use Muzik\OmnipayEsafe\Message\CompletePurchaseRequest;
 

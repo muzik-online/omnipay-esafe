@@ -2,9 +2,9 @@
 
 namespace Test;
 
-use Muzik\OmnipayEsafe\Message\CompletePurchaseRequest;
 use PHPUnit\Framework\TestCase;
 use Muzik\OmnipayEsafe\BankTransferGateway;
+use Muzik\OmnipayEsafe\Message\CompletePurchaseRequest;
 
 class BankTransferGatewayTest extends TestCase
 {
