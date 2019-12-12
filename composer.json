@@ -2,8 +2,10 @@
     "name": "muzik/omnipay-esafe",
     "description": "Esafe gateway for Omnipay payment processing library",
     "type": "library",
+    "license": "MIT",
     "require": {
-        "omnipay/common": "^3"
+        "omnipay/common": "^3",
+        "muzik/esafe-php-sdk": "^0"
     },
     "require-dev": {
         "omnipay/tests": "^3"
@@ -14,5 +16,15 @@
             "email": "song374561@chivincent.net"
         }
     ],
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "Muzik\\OmnipayEsafe\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\": "tests"
+        }
+    }
 }
