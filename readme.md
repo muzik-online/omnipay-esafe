@@ -177,3 +177,7 @@ if ($response->isSuccessful()) {
     - `refund(array $options = []): RefundRequest`
 - WebAtm
     - `completePurchase(array $options = []): CompletePurchaseRequest`
+
+## License
+
+This library is under [MIT](https://opensource.org/licenses/MIT) license.
