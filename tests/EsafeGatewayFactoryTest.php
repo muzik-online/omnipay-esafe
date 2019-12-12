@@ -2,17 +2,17 @@
 
 namespace Test;
 
-use Muzik\OmnipayEsafe\BankTransferGateway;
-use Muzik\OmnipayEsafe\BarcodeGateway;
-use Muzik\OmnipayEsafe\CashOnDeliveryGateway;
-use Muzik\OmnipayEsafe\CreditCardGateway;
-use Muzik\OmnipayEsafe\EsafeGatewayFactory;
-use Muzik\OmnipayEsafe\PaycodeGateway;
-use Muzik\OmnipayEsafe\TaiwanpayGateway;
-use Muzik\OmnipayEsafe\UnionpayGateway;
-use Muzik\OmnipayEsafe\WebAtmGateway;
 use Omnipay\Omnipay;
 use PHPUnit\Framework\TestCase;
+use Muzik\OmnipayEsafe\WebAtmGateway;
+use Muzik\OmnipayEsafe\BarcodeGateway;
+use Muzik\OmnipayEsafe\PaycodeGateway;
+use Muzik\OmnipayEsafe\UnionpayGateway;
+use Muzik\OmnipayEsafe\TaiwanpayGateway;
+use Muzik\OmnipayEsafe\CreditCardGateway;
+use Muzik\OmnipayEsafe\BankTransferGateway;
+use Muzik\OmnipayEsafe\EsafeGatewayFactory;
+use Muzik\OmnipayEsafe\CashOnDeliveryGateway;
 
 class EsafeGatewayFactoryTest extends TestCase
 {

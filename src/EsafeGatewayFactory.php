@@ -2,9 +2,9 @@
 
 namespace Muzik\OmnipayEsafe;
 
-use Omnipay\Common\Exception\RuntimeException;
 use Omnipay\Common\GatewayFactory;
 use Omnipay\Common\Http\ClientInterface;
+use Omnipay\Common\Exception\RuntimeException;
 use Symfony\Component\HttpFoundation\Request as HttpRequest;
 
 class EsafeGatewayFactory extends GatewayFactory
