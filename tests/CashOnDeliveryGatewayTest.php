@@ -2,6 +2,7 @@
 
 namespace Test;
 
+use Muzik\OmnipayEsafe\Message\CompletePurchaseRequest;
 use PHPUnit\Framework\TestCase;
 use Muzik\OmnipayEsafe\CashOnDeliveryGateway;
 
@@ -43,5 +44,26 @@ class CashOnDeliveryGatewayTest extends TestCase
         $this->gateway->initialize(['api_key' => 'abcd5888']);
 
         $this->assertSame('abcd5888', $this->gateway->getApiKey());
+    }
+
+    public function test_complete_purchase()
+    {
+        $this->gateway->setApiKey('abcd5888');
+        $request = $this->gateway->completePurchase([
+            'buysafeno' => '2400009912300000019',
+            'web' => 'S1103020010',
+            'Td' => '',
+            'MN' => '1000',
+            'Name' => 'V****** **i',
+            'note1' => '',
+            'note2' => '',
+            'SendType' => '1',
+            'errcode' => '00',
+            'CargoNo' => 'F23501480823',
+            'InvoiceNo' => '',
+            'ChkValue' => '6E0ED343525CDCBE678BB1103054CBA25E634282',
+        ]);
+
+        $this->assertInstanceOf(CompletePurchaseRequest::class, $request);
     }
 }
