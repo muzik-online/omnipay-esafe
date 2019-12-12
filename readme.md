@@ -27,8 +27,11 @@ First of all, should create gateway instance
 <?php
 
 use Omnipay\Omnipay;
+use Muzik\OmnipayEsafe\EsafeGatewayFactory;
+use Muzik\OmnipayEsafe\CreditCardGateway;
 
-$gateway = Omnipay::create('ESafe Credit Card');
+Omnipay::setFactory(new EsafeGatewayFactory());
+$gateway = Omnipay::create(CreditCardGateway::class);
 $gateway->setApiKey('abcd5888');
 // The following two methods also can setting transaction password（API KEY） 
 // $gateway->initialize(['api_key' => 'abcd5888']);
