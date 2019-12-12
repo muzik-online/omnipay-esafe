@@ -1,4 +1,5 @@
 # Omnipay: Esafe
+![](https://github.com/muzik-online/omnipay-esafe/workflows/Test/badge.svg)
 
 ESafe driver for the Omnipay PHP payment processing library.
 
@@ -177,3 +178,7 @@ if ($response->isSuccessful()) {
     - `refund(array $options = []): RefundRequest`
 - WebAtm
     - `completePurchase(array $options = []): CompletePurchaseRequest`
+
+## License
+
+This library is under [MIT](https://opensource.org/licenses/MIT) license.
