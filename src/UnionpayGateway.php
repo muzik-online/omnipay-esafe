@@ -16,7 +16,7 @@ class UnionpayGateway extends AbstractGateway
     public function refund(array $options = [])
     {
         $request = new RefundRequest(new Esafe(['transaction_password' => $this->getApiKey()]));
-        $request->initialize($options);
+        $request->initialize(['testing' => $this->getTestMode()] + $options);
 
         return $request;
     }
