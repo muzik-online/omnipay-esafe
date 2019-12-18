@@ -55,7 +55,7 @@ $response = $gateway->completePurchase([
 
 if ($response->isSuccessful()) {
     // 付款成功
-    vardump($response->getData()); // 取得紅陽的回傳資料
+    var_dump($response->getData()); // 取得紅陽的回傳資料
 } else {
     // 付款失敗
     var_dump($response);
@@ -105,7 +105,7 @@ $response = $gateway->completePurchase([
 
 if ($response->isSuccessful()) {
     // 付款成功
-    vardump($response->getData()); // 取得紅陽的回傳資料
+    var_dump($response->getData()); // 取得紅陽的回傳資料
 } else {
     // 付款失敗
     var_dump($response);
